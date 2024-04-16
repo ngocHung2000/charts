@@ -1,0 +1,5 @@
+apiVersion: v2
+name: ibm-integration-runtime
+description: A Helm Chart for IBM Integration Runtime
+type: application
+version: 0.1.0

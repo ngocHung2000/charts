@@ -1,0 +1,24 @@
+integrationRuntime:
+  barURL: []
+  configuration: []
+  replicas: 1
+  version: 12.0.11.3-r1
+  license:
+    accept: true
+    license: L-KZVS-2G3FW4
+    use: AppConnectEnterpriseProduction
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 1024Mi
+    requests:
+      cpu: 2000m
+      memory: 1024Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+

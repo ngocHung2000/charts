@@ -1,0 +1,24 @@
+apiVersion: appconnect.ibm.com/v1beta1
+kind: IntegrationRuntime
+metadata:
+  labels:
+    {{- include "ibm-integration-runtime.labels" . | nindent 4 }}
+  name: {{ .Release.Name }}-ir
+  namespace: {{ .Release.Namespace }}
+spec:
+  # Arrays Bar URL
+  barURL: {{ toYaml .Values.integrationRuntime.barURL | indent 2 }}
+  # Arrays Configure file
+  configurations: {{ toYaml .Values.integrationRuntime.configurations | indent 2 }}
+  # Object License
+  license: {{ toYaml .Values.integrationRuntime.license | indent 4 }}
+  logFormat: basic
+  replicas: {{ .Values.integrationRuntime.replicas }}
+  template:
+    spec:
+      containers:
+      - name: runtime
+        resources:
+          limits: {{ toYaml .Values.integrationRuntime.resources.limits | indent 12 }}
+          requests: {{ toYaml .Values.integrationRuntime.resources.limits | indent 12 }}
+  version: {{ .Values.integrationRuntime.version }}
