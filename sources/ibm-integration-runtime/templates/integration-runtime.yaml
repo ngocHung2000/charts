@@ -7,18 +7,22 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   # Arrays Bar URL
-  barURL: {{ toYaml .Values.integrationRuntime.barURL | indent 2 }}
-  # Arrays Configure file
-  configurations: {{ toYaml .Values.integrationRuntime.configurations | indent 2 }}
+#   barURL: 
+# {{ toYaml .Values.integrationRuntime.barURL | indent 2 }}
+#   # Arrays Configure file
+#   configurations: 
+# {{ toYaml .Values.integrationRuntime.configurations | indent 2 }}
   # Object License
-  license: {{ toYaml .Values.integrationRuntime.license | indent 4 }}
-  logFormat: basic
+  license: 
+{{ toYaml .Values.integrationRuntime.license | indent 4 }}
   replicas: {{ .Values.integrationRuntime.replicas }}
   template:
     spec:
       containers:
       - name: runtime
         resources:
-          limits: {{ toYaml .Values.integrationRuntime.resources.limits | indent 12 }}
-          requests: {{ toYaml .Values.integrationRuntime.resources.limits | indent 12 }}
+          limits: 
+{{ toYaml .Values.integrationRuntime.resources.limits | indent 12 }}
+          requests: 
+{{ toYaml .Values.integrationRuntime.resources.requests | indent 12 }}
   version: {{ .Values.integrationRuntime.version }}
